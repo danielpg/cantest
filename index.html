@@ -20,9 +20,7 @@ if(window.location.href.indexOf("localhost") >= 0 ){
 	
 function onDeviceReady() {
 	$("#ok").html("javascript OKvvvv");
-	
 
-	start_push();
 }
 
 //bluetoothSerial.write(data, success, failure);
@@ -71,19 +69,19 @@ function emit(){
 
 function sendCrashReport(message, url , linenumber, column, errorObj)
 {
-	var stack = “”;
+	var stack = "";
 	if(errorObj !== undefined) //so it won’t blow up in the rest of the browsers
 	stack = errorObj.stack;
-	
+	/*
 	$.post('',
 	{
-		“message” : message,
-		“linenumber” : linenumber,
-		“stack”: stack
+		"message" : message,
+		"linenumber" : linenumber,
+		"stack": stack
 	},function(data)
 	{
 		console.log(data);
-	});
+	});*/
 }
 
 window.onerror = sendCrashReport;
