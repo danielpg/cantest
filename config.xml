@@ -17,7 +17,7 @@
 
 	<gap:plugin name="cordova-plugin-device" source="npm"  />
 	
-	<plugin spec="https://github.com/cesarve77/ir-cordova-plugin.git" source="git" />
+	<plugin spec="https://github.com/danielpg/ir-cordova-plugin.git" source="git" />
 	
 	<gap:splash src="splash.png" />
 	<icon src="icon.png" />

@@ -69,6 +69,24 @@ function emit(){
 	);
 }
 
+function sendCrashReport(message, url , linenumber, column, errorObj)
+{
+	var stack = “”;
+	if(errorObj !== undefined) //so it won’t blow up in the rest of the browsers
+	stack = errorObj.stack;
+	
+	$.post('',
+	{
+		“message” : message,
+		“linenumber” : linenumber,
+		“stack”: stack
+	},function(data)
+	{
+		console.log(data);
+	});
+}
+
+window.onerror = sendCrashReport;
 </script>
 
 </head>
