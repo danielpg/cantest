@@ -18,6 +18,7 @@
 	<gap:plugin name="cordova-plugin-device" source="npm"  />
 	
 	<plugin spec="https://github.com/danielpg/ir-cordova-plugin.git" source="git" />
+	<gap:plugin name="cordova-plugin-barcodescanner" source="npm"  />
 	
 	<gap:splash src="splash.png" />
 	<icon src="icon.png" />
