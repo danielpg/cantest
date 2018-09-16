@@ -1,1 +1,85 @@
-qqc
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+
+<style>
+.mybutton{padding:5px;text-align:center;color:white;background:#00A5FF;border-radius:5px;width:120px;margin-bottom:15px;cursor:pointer}
+</style>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript"  src="cordova.js"></script> 
+<script>
+var bluelist = [];
+var desktop = 0;
+
+//if(desktop == 0){
+if(window.location.href.indexOf("localhost") >= 0 ){
+	$(function(){ onDeviceReady(); });
+} else {
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+	
+function onDeviceReady() {
+	$("#ok").html("javascript OKvvvv");
+	
+
+	start_push();
+}
+
+//bluetoothSerial.write(data, success, failure);
+//
+
+function say_list(items){
+	for(i = 0; i < items.length; i++ ){
+		$("#console").append("<div>object:</div>");
+		for (var mkey in items[i]){
+			$("#console").append("<div><b>" + mkey + "</b>: " + items[i][mkey] + "</div>");	
+		
+		}
+	}
+}
+
+
+function myclose(){
+	if (navigator.app) {
+	    navigator.app.exitApp();
+	} else if (navigator.device) {
+	    navigator.device.exitApp();
+	} else {
+	    window.close();
+	}
+}
+
+function mydeviceid(){
+	alert( device.uuid );
+	$("#console").append( device.uuid );
+}
+
+function emit(){
+	ir.transmit(
+		38400 , 
+		//[9000, 4500, 560, 560, 560, 560, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 1690, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 39416, 9000, 2210, 560],
+		[21,21,21,21,21,21,21,21,21,21,21,21],
+		function(){ 
+			alert("IROK"); 
+		}, 
+		function(){
+			alert("IRERROR");
+		}
+	);
+}
+
+</script>
+
+</head>
+<body>
+Grua
+<div id="list"></div>
+<div id="buttons">
+<div class="mybutton" onclick="mydeviceid();"  style="background:#f4427d">my device id</div>
+<div class="mybutton" onclick="emit();"  style="background:red">EMIT</div>
+
+</div>
+<div id="console"></div>
+<div id="ok"></div>
+</body>
+</html>
