@@ -13,7 +13,7 @@
 		Cantest
 	</description>
 
-	<!-- preference name="orientation" value="portrait" /-->
+	<preference name="orientation" value="landscape" />
 
 	<gap:plugin name="cordova-plugin-device" source="npm"  />
 	
